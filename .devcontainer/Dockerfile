@@ -1,5 +1,9 @@
-FROM n8nio/n8n:0.234.1
+FROM n8nio/n8n:latest
 
+ENV N8N_PORT=5678
+EXPOSE 5678
+
+CMD ["n8n", "start"]
 
 RUN apk add --no-cache --update openssh sudo shadow bash
 RUN echo node ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/node && chmod 0440 /etc/sudoers.d/node
